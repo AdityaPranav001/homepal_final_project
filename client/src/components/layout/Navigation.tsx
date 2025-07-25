@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Home } from "lucide-react";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation();
+  const [location] = useLocation();
 
   const navigationItems = [
     { name: "About Us", path: "/about" },
@@ -14,7 +14,7 @@ const Navigation = () => {
     { name: "Customer Dashboard", path: "/customer-dashboard" },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => location === path;
 
   return (
     <nav className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">

@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, Star, Users, Clock } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "wouter";
 import heroImage from "@/assets/hero-image.jpg";
 
 const HeroSection = () => {

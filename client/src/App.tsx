@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Router, Route } from "wouter";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -19,19 +19,16 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/how-it-works" element={<HowItWorks />} />
-          <Route path="/customer-dashboard" element={<CustomerDashboard />} />
-          <Route path="/helper-dashboard" element={<HelperDashboard />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <Router>
+        <Route path="/" component={Home} />
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={Signup} />
+        <Route path="/about" component={About} />
+        <Route path="/how-it-works" component={HowItWorks} />
+        <Route path="/customer-dashboard" component={CustomerDashboard} />
+        <Route path="/helper-dashboard" component={HelperDashboard} />
+        <Route path="*" component={NotFound} />
+      </Router>
     </TooltipProvider>
   </QueryClientProvider>
 );

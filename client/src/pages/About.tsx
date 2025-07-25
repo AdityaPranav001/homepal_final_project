@@ -2,7 +2,7 @@ import Navigation from "@/components/layout/Navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Heart, Shield, Users, Clock, Star, Award } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "wouter";
 
 const About = () => {
   const values = [

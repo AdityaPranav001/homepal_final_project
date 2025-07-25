@@ -14,7 +14,7 @@ import {
   MapPin,
   Phone
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "wouter";
 
 const HowItWorks = () => {
   const customerSteps = [

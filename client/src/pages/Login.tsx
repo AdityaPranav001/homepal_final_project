@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -9,9 +9,9 @@ import { Home, ArrowLeft } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Login = () => {
-  const [searchParams] = useSearchParams();
-  const navigate = useNavigate();
+  const [location, setLocation] = useLocation();
   const { toast } = useToast();
+  const searchParams = new URLSearchParams(window.location.search);
   const defaultTab = searchParams.get("type") === "helper" ? "helper" : "customer";
   
   const [customerData, setCustomerData] = useState({
@@ -39,7 +39,7 @@ const Login = () => {
       title: "Success!",
       description: "Logged in successfully as customer",
     });
-    navigate("/customer-dashboard");
+    setLocation("/customer-dashboard");
   };
 
   const handleHelperLogin = (e: React.FormEvent) => {
@@ -57,7 +57,7 @@ const Login = () => {
       title: "Success!",
       description: "Logged in successfully as helper",
     });
-    navigate("/helper-dashboard");
+    setLocation("/helper-dashboard");
   };
 
   return (
