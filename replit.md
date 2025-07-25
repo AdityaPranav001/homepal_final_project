@@ -29,22 +29,28 @@ The application follows a monorepo structure with clear separation between clien
 
 ### Backend Architecture
 - **Express Server**: RESTful API with middleware for logging and error handling
-- **Storage Layer**: Abstracted storage interface with in-memory implementation (ready for database integration)
+- **Storage Layer**: PostgreSQL database with Drizzle ORM and comprehensive storage interface
 - **Route Organization**: Centralized route registration with API prefix structure
 - **Development Tools**: Vite integration for development with HMR support
+- **Authentication**: User registration and login endpoints for customers and helpers
 
 ### Database Schema
-- **User Management**: Basic user schema with username/password authentication
+- **User Management**: Comprehensive user schema supporting both customers and helpers
+- **Helper Profiles**: Extended profiles for helpers with skills, ratings, and availability
+- **Service Management**: Service catalog with pricing and descriptions
+- **Booking System**: Complete booking lifecycle from request to completion
+- **Review System**: Rating and review system for quality assurance
 - **Type Safety**: Drizzle-zod integration for runtime validation
-- **Migration Support**: Configured for PostgreSQL with migration management
+- **Migration Support**: Configured for PostgreSQL with Neon serverless adapter
 
 ## Data Flow
 
 1. **Client Requests**: React components make API calls using TanStack Query
 2. **Server Processing**: Express routes handle requests and interact with storage layer
-3. **Data Persistence**: Storage interface abstracts database operations
-4. **Response Handling**: JSON responses with consistent error handling
-5. **State Updates**: Client state updates trigger UI re-renders
+3. **Database Operations**: PostgreSQL database with Drizzle ORM for type-safe queries
+4. **Data Persistence**: Comprehensive storage interface with user management, bookings, and reviews
+5. **Response Handling**: JSON responses with consistent error handling
+6. **State Updates**: Client state updates trigger UI re-renders
 
 ## External Dependencies
 
